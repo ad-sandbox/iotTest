@@ -35,8 +35,11 @@ public class ClientCmd extends AbstractCommand {
             for (;;) {
                 String msg = new Date().toString();
                 logger.debug("   Send Data:"+msg);
+                long c = System.currentTimeMillis();
                 logger.debug("   Received:"+stub.sayHello(msg).getMsg());
 
+                long d = System.currentTimeMillis()-c;
+                logger.debug("+"+d+" ms");
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
