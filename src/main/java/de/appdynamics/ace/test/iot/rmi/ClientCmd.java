@@ -32,9 +32,17 @@ public class ClientCmd extends AbstractCommand {
         try {
             Registry reg = LocateRegistry.getRegistry("localhost", Integer.parseInt(options.getOptionValue(ARG_PORT)));
             IRMITestServer stub = (IRMITestServer) reg.lookup("TST");
-            String msg = new Date().toString();
-            logger.debug("   Send Data:"+msg);
-            logger.debug("   Received:"+stub.sayHello(msg).getMsg());
+            for (;;) {
+                String msg = new Date().toString();
+                logger.debug("   Send Data:"+msg);
+                logger.debug("   Received:"+stub.sayHello(msg).getMsg());
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         } catch (RemoteException e) {
             logger.error("Couldn Find Registy at localhost:"+options.getOptionValue(ARG_PORT),e);
         } catch (NotBoundException e) {
