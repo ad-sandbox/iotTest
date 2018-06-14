@@ -5,5 +5,5 @@ import java.rmi.RemoteException;
 
 public interface   IRMITestServer  extends Remote {
 
-    String sayHello(String s) throws RemoteException;
+    RMIMessageObject sayHello(String obj) throws RemoteException;
 }

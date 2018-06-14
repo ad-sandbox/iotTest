@@ -34,7 +34,7 @@ public class ClientCmd extends AbstractCommand {
             IRMITestServer stub = (IRMITestServer) reg.lookup("TST");
             String msg = new Date().toString();
             logger.debug("   Send Data:"+msg);
-            logger.debug("   Received:"+stub.sayHello(msg));
+            logger.debug("   Received:"+stub.sayHello(msg).getMsg());
         } catch (RemoteException e) {
             logger.error("Couldn Find Registy at localhost:"+options.getOptionValue(ARG_PORT),e);
         } catch (NotBoundException e) {

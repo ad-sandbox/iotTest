@@ -1,6 +1,5 @@
 package de.appdynamics.ace.test.iot.rmi.impl;
 
-import de.appdynamics.ace.test.iot.rmi.ServerCmd;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,8 +17,8 @@ public class RMITestServer implements IRMITestServer{
     }
 
     @Override
-    public String sayHello(String s) throws RemoteException{
+    public RMIMessageObject sayHello(String s) throws RemoteException{
         logger.debug("Message Received "+s);
-        return _prefix+s;
+        return new RMIMessageObject(_prefix+s);
     }
 }
