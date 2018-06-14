@@ -22,6 +22,10 @@ public class RMITestServer implements IRMITestServer{
 
     @Override
     public RMIMessageObject sayHello(String s) throws RemoteException{
+        return sayHelloImpl(s);
+    }
+
+    private RMIMessageObject sayHelloImpl(String s) {
         logger.debug("Message Received "+s);
         // Add some random Delay
         try {
