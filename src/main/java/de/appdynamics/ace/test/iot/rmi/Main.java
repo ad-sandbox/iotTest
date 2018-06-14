@@ -23,6 +23,8 @@ public class Main {
         CommandlineExecution cle = new CommandlineExecution("RMI-Tool");
 
         cle.addCommand(new ServerCmd());
+        cle.addCommand(new ClientCmd());
+
 
         System.exit(cle.execute(args));
     }
