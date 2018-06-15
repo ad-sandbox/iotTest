@@ -15,7 +15,7 @@ public class Main {
         //configure the appender
         String PATTERN = "%d [%p|%c|%C{1}] %m%n";
         console.setLayout(new PatternLayout(PATTERN));
-        console.setThreshold(Level.DEBUG);
+        console.setThreshold(Level.TRACE);
         console.activateOptions();
         //add appender to any Logger (here is root)
         Logger.getRootLogger().addAppender(console);
