@@ -43,7 +43,7 @@ public class RMITestServer implements IRMITestServer{
         RMIMessageObject erg = new RMIMessageObject(_prefix + s);
         String f = AgentDelegate.getEndUserMonitoringDelegate().getFooter();
         HashMap<String, String> footer = unwrapAdrum(f);
-
+        erg.setHeaders(footer);
 
         logger.debug("Footer:"+footer);
         return erg;
